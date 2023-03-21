@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "ubuntu", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* .max-width {
+  max-width: 1300px;
+  padding: 0 80px;
+  margin: auto;
+} */
+
+/* navbar styling */
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 30px 1.5rem;
+  font-family: "ubuntu", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.navbar.sticky {
+  padding: 15px 1.5rem;
+  background: crimson;
+}
+
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbar .logo a {
+  color: wheat;
+  font-size: 35px;
+  font-weight: 600;
+  /* margin-left: 3rem; */
+}
+
+.navbar .logo a span {
+  color: crimson;
+  transition: all 0.3s ease;
+}
+
+.navbar.sticky .logo a span {
+  color: wheat;
+}
+
+.navbar .menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar .menu li a {
+  display: block;
+  color: wheat;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+  color: crimson;
+}
+
+.navbar.sticky .menu li a:hover {
+  color: wheat;
+}
+
+/* menu btn */
+.menu-btn {
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
+}
+/* .max-width img{
+  margin-left: 10rem;
+} */
+
+/* profile and sub-menu styling */
+.profile-pic {
+  width: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.sub-menu-wrap {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu {
+  max-height: 400px;
+}
+
+.sub-menu {
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.user-info h3 {
+  color: #525252;
+  font-weight: 500;
+}
+.user-info img {
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.sub-menu hr {
+  border: 0;
+  height: 2px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+.sub-menu-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+.sub-menu-link p {
+  width: 100%;
+}
+.sub-menu-link a {
+  width: 100%;
+  text-decoration: none;
+  color: #525252;
+}
+.sub-menu-link i {
+  width: 40px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  padding: 10px;
+  margin-right: 15px;
+}
+.sub-menu-link span {
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}
+.sub-menu-link:hover p {
+  font-weight: 600;
+}
+.sub-menu-link:hover a {
+  font-weight: 600;
+}
+
+/* Home section styling */
+.home {
+  display: flex;
+  background: url("../images/bg.png") no-repeat center;
+  background-size: 100% 100%;
+  height: 65vh;
+  color: wheat;
+  /* min-height: 500px; */
+  font-family: "ubuntu", sans-serif;
+}
+.home-content {
+  margin: 7rem auto 0px;
+}
+.home-title {
+  margin-top: 6rem;
+  font-size: 3rem;
+  text-align: center;
+}
+.home-title span {
+  /* font-size: 1.4rem; */
+  color: crimson;
+}
+.search-box {
+  margin: 2rem 0px 0px 10rem;
+  height: 2.5rem;
+  width: 60%;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  border: 1px solid #525252;
+}
+
+/* home product section */
+.project-container{
+  margin: 0 6rem 0 6rem;
+}
+.title{
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 4rem;
+  padding-bottom: 2rem;
+}
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  /* padding: 0px 5rem; */
+}
+.card{
+  height: 20rem;
+  width: 20rem;
+  border: 1px solid black;
+  margin: 1rem auto 1rem auto;
+  padding: .5rem;
+  cursor: pointer;
+  border: .1rem solid grey;
+  border-radius: .5rem;
+}
+.card:hover{
+  background: lavender;
+  border: .1rem solid rgb(29, 170, 212);
+}
+.card-img{
+  width: 100%;
+  height: 65%;
+}
+.card-img img{
+  width: 100%;
+  height: 100%;
+}
+.card-details h3{
+  margin: 1.2rem 0px 0px .7rem;
+  font-weight: 700;
+}
+.card-details p{
+  margin: 1.2rem 0px 0px .7rem;
+  font-size: .9rem;
+}
+.card-details p a{
+  font-size: 1rem;
+  margin-left: .5rem;
+  color: rgb(29, 170, 212);
+}
+.card-details p a:hover{
+  font-weight: 500;
+ }
+ .card-details span{
+  margin: .2rem 0px 0px .7rem;
+  font-size: .8rem;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer section */
+footer {
+  background: #111;
+  padding: 20px 23px;
+  color: #fff;
+}
+
+footer span a {
+  color: crimson;
+  text-decoration: none;
+}
+
+footer span a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsive media */
+@media (max-width: 1200px) {
+  .home-title {
+    margin-top: 5.8rem;
+    font-size: 2.8rem;
+  }
+
+  /* .search-box{
+    margin: 1.9rem 0px 0px 9.7rem;
+    height: 2.4rem;
+    width: 57%;
+    border-radius: .5rem;
+    font-size: .9rem;
+    padding-left: .9rem;
+  } */
+}
+@media (max-width: 1000px) {
+  .home-title {
+    margin-top: 5.6rem;
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 947px) {
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+
+  .menu-btn i.active:before {
+    content: "\f00d";
+  }
+
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: #111;
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .menu.active {
+    left: 0;
+  }
+
+  .navbar .menu li {
+    display: block;
+  }
+
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 25px;
+  }
+  .home-title {
+    margin-top: 5.3rem;
+    font-size: 2.1rem;
+  }
+  .search-box {
+    margin: 1.9rem 0px 0px 7rem;
+  }
+}
+@media (max-width: 760px) {
+  .home-title {
+    margin-top: 5rem;
+    font-size: 1.9rem;
+  }
+}
+@media (max-width: 680px) {
+  .home-title {
+    margin-top: 4.8rem;
+    font-size: 1.7rem;
+  }
+  .search-box {
+    margin: 1.9rem 0px 0px 6.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .search-box {
+    margin: 1.9rem 0px 0px 6rem;
+  }
+}
+@media (max-width: 460px) {
+  .home-title {
+    font-size: 1.6rem;
+  }
+  .search-box {
+    margin: 1.9rem 0px 0px 5.5rem;
+  }
+}
+@media (max-width: 420px) {
+  .search-box {
+    margin: 1.9rem 0px 0px 4.9rem;
+  }
+}
+@media (max-width: 390px) {
+  .home-title {
+    font-size: 1.5rem;
+  }
+  .search-box {
+    margin: 1.9rem 0px 0px 4.5rem;
+  }
+}
+@media (max-width: 360px) {
+  .search-box {
+    margin: 1.9rem 0px 0px 4.2rem;
+  }
+}
+@media (max-width: 320px) {
+  .home-title {
+    font-size: 1.4rem;
+  }
+  .search-box {
+    margin: 1.9rem 0px 0px 4rem;
+  }
+}
+@media (max-width: 300px) {
+  .home-title {
+    font-size: 1.3rem;
+  }
+  .search-box {
+    margin: 1.9rem 0px 0px 3.8rem;
+  }
+}
+@media (max-width: 275px) {
+  .search-box {
+    margin: 1.9rem 0px 0px 3.6rem;
+  }
+}
+@media (max-width: 255px) {
+  .home-title {
+    font-size: 1.2rem;
+  }
+  .search-box {
+    margin: 1.9rem 0px 0px 3rem;
+  }
+}

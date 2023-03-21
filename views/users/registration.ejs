@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/registration.css" />
+
+<section class="register">
+  <h1 class="regTitle">User Registration</h1>
+
+  <form
+    action=""
+    method="post"
+    enctype="multipart/form-data"
+    class="input-container"
+  >
+    <input
+      type="text"
+      name="name"
+      placeholder="Enter name"
+      required
+      class="input-field"
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="example@domain.com"
+      required
+      class="input-field"
+    />
+    <input
+      type="text"
+      name="mobile"
+      placeholder="Mobile No."
+      required
+      class="input-field"
+    />
+    <input type="file" name="image" required id="image-input" />
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter Password"
+      required
+      class="input-field"
+    />
+    <input type="submit" value="Register" class="btn" />
+
+    <a href="/login" class="login-link">Already have an account?</a>
+  </form>
+
+  <% if(typeof message !== 'undefined'){ %>
+  <p class="regiter-success-msg"><%= message %>&#x2713;&#x2713;</p>
+  <% } %>
+</section>

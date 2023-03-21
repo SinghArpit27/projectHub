@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap");
+body{
+    font-family: "ubuntu", sans-serif;
+    background-color: rgb(91, 91, 165);
+}
+.register{
+    position: absolute;
+    top: 3rem;
+    left: 37%;
+    width: 29%;
+    background-color: rgba(240, 128, 128, 0.623);
+    margin: auto;
+    border-radius: .4rem;
+}
+.regTitle{
+    font-size: 1.8rem;
+    padding: 1rem 0 1rem 3rem;
+
+}
+
+.input-container{
+    padding-left: 3rem;
+}
+.input-field{
+    height: 2rem;
+    width: 85.5%;
+    border: 1.5px solid lightblue;
+    border-radius: .3rem;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+    padding-left: .2rem;
+}
+#image-input{
+    font-size: 1.1rem;
+    padding-bottom: 1rem;
+}
+.btn{
+    width: 8rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    color: #111;
+    background: crimson;
+    border: 1px solid crimson;
+    border-radius: .3rem;
+    padding: .5rem 0 .5rem 0;
+}
+.btn:hover{
+    color: crimson;
+    background: #fff;
+    border: 1px solid crimson;
+    border-radius: .3rem;
+}
+.regiter-success-msg{
+    font-size: 1.3rem;
+    padding: .1rem 2rem 1rem 3rem;
+    color: green;
+}
+.login-link{
+    text-decoration: none;
+    /* font-size: 1rem; */
+}

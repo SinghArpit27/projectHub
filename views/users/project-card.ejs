@@ -1,0 +1,57 @@
+<a href="/home">Home</a>
+<title>iitians Project Hub</title>
+
+<h1>Projects</h1>
+
+
+
+
+
+<table width="50%">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>productTitle</th>
+            <th>tutorialBy</th>
+            <th>aboutProduct</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>img</td>
+            <td>proTitle</td>
+            <td>Arpit</td>
+            <td>demo project</td>
+        </tr>
+        <%if(productRecord.length > 0) {%>
+          
+          <% productRecord.forEach(function(element) {%>
+            <tr>
+              <td><%= element.image %></td>
+              <td><%= element.productTitle %></td>
+              <td><%= element.tutorialBy %></td>
+              <td><%= element.aboutProduct %></td>
+            </tr>
+          <% }) %>
+          <% } %>
+        
+      </tbody>
+
+
+</table>
+
+
+
+
+<!-- <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>productTitle</th>
+        <th>creator</th>
+        <th>About</th>
+      </tr>
+    </thead>
+   
+  </table> -->
+

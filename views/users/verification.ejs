@@ -1,0 +1,22 @@
+<% include('../layouts/header.ejs') %>
+
+<section class="container">
+    <h1>Email Verification</h1>
+
+    <%
+        if(typeof message !== 'undefined'){
+            %>
+            <h4><%= message %></h4>
+            <%
+        }
+    %>
+
+    <form action="" method="post">
+        <input type="email" name="email" placeholder="Email or username" required>
+        <br><br>
+        <input type="submit" value="Send Verification link">
+    </form>
+</section>
+
+
+<% include('../layouts/footer.ejs') %>

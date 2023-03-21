@@ -1,0 +1,103 @@
+<!-- <link rel="stylesheet" type="text/css" href="/stylesheets/adminDashboard.css" /> -->
+
+
+<section class="dashboard-data-container">
+
+
+
+    
+
+<a href="/admin/home">Home</a>
+<br><br>
+<a href="/admin/new-user">Add New User</a>
+<a href="/admin/export-users">Export Users</a>
+
+
+<h1>Admin Dashboard</h1>
+
+
+<br><br>
+
+
+<form>
+    <input type="text" placeholder="Search User name, email and mobile" name="search">
+    <input type="submit" value="search">
+</form>
+
+<!-- <p><%- users %></p> -->
+<table width="50%">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>mobile</th>
+        <th>Verified</th>
+        <th>Actions</th>
+    </tr>
+
+    <%
+    
+    if(users.length > 0){
+        for(let i = 0; i <users.length; i++){
+            %>
+                <tr>
+                    <td><img src="/userImages/<%= users[i].image %>" alt="<%= users[i].image %>" width="100px"></td>
+                    <td><%= users[i].name %></td>
+                    <td><%= users[i].email %></td>
+                    <td><%= users[i].mobile %></td>
+                    <td><%
+
+                            if(users[i].is_varified == 0){
+                                %>
+                                <p>Not Verified</p>
+                                <%
+                            }else{
+                                %>
+                                <p>Verified</p>
+                                <%
+                            }
+                        
+                        %></td>
+                        <td>
+                            <a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a>
+                            <a href="/admin/delete-user?id=<%= users[i]._id %>">Delete</a>
+                        </td>
+                </tr>
+            <%
+        }
+    }
+    else{
+        %>
+            <tr>
+                <td colspan="5">Users Not Found</td>
+            </tr>
+
+        <%
+    }
+    
+    %>
+
+</table>
+<br>
+<%
+
+    for(let j = 1; j <= totalPages; j++){
+        %>
+
+            <a href="?page=<%= j %>"><%= j %></a>
+        <%
+    }
+
+%>
+
+
+
+
+
+
+
+</section>
+
+<script src="/js/home.js"></script>
+
+<% include('../layouts/footer.ejs') %>

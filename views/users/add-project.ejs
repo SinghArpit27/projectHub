@@ -1,0 +1,67 @@
+<title>iitians Project Hub</title>
+<a href="/home">Home</a>
+
+<section class="add-project">
+  <h1 class="addProjectTitle">Create New Project</h1>
+
+  <form action="" method="post" enctype="multipart/form-data" class="input-container">
+    
+
+    <input
+      type="text"
+      name="productTitle"
+      placeholder="Project Title"
+      required
+      class="input-field"
+    />
+    <br /><br />
+    <input
+      type="text"
+      name="tutorialBy"
+      placeholder="Author Name"
+      required
+      class="input-field"
+    />
+    <br /><br />
+    <input
+      type="text"
+      name="aboutProduct"
+      placeholder="10-15 words about project"
+      required
+      class="input-field"
+    />
+    <br /><br />
+    <label>Project Image</label>
+    <input type="file" name="image" required id="image-input" />
+    <br /><br />
+
+    <hr />
+    <br />
+    <h2>Upload Code and Reports about Project</h2>
+
+    <label>Project Code</label>
+    <input type="url" name="projectCode" required id="projectCode-input" />
+    <br /><br />
+    <label>Synopsis</label>
+    <input type="file" name="synopsis" required id="synopsis-input" />
+    <br /><br />
+    <label>Report</label>
+        <input type="file" name="report" required id="report-input">
+        <br><br>
+    <textarea
+      name="projectDescription"
+      id=""
+      cols="30"
+      rows="10"
+      placeholder="Description About Project 50 to 100 words"
+    ></textarea>
+
+    <input type="submit" value="Upload" class="btn" />
+
+    <!-- <a href="/home" class="login-link">Home</a> -->
+  </form>
+
+  <% if(typeof message !== 'undefined'){ %>
+  <p class="regiter-success-msg"><%= message %>&#x2713;&#x2713;</p>
+  <% } %>
+</section>

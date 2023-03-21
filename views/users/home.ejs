@@ -1,0 +1,193 @@
+<!-- <h3>Welcome, <%= user.name %></h3> -->
+
+<!-- <section class="profile-container">
+    <table> -->
+<!-- <tr>
+            <td> <img src="userImages/<%= user.image %>" alt="<%= user.image %>" width="70px" height="70px"> </td>
+        </tr> -->
+<!-- <tr>
+            <td>Email</td>
+            <td> <%= user.email %> </td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td> <%= user.mobile %> </td>
+        </tr>
+    </table>
+</section> -->
+
+<!-- <a href="/edit?id=<%= user._id %>">Edit</a>
+<a href="/logout">logout</a> -->
+
+<!-- <% include('../layouts/header.ejs') %> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iitians Project Hub</title>
+
+  <!-- external css file link -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/home.css" />
+  <!-- <script src="../../public/js/home.js"></script> -->
+
+  <!-- other styling link -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+  <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+</head>
+
+<body>
+  <!-- Header Navbar -->
+  <nav class="navbar">
+    <div class="max-width">
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="logo">
+        <a href="#">log<span>o</span></a>
+      </div>
+      <ul class="menu">
+        <li><a href="/home" class="menu-btn">Home</a></li>
+        <li><a href="/projects" class="menu-btn">Projects</a></li>
+        <li><a href="#" class="menu-btn">Services</a></li>
+        <li><a href="#" class="menu-btn">About</a></li>
+        <li><a href="/addProject" class="menu-btn">+New Project</a></li>
+        <li><a href="#" class="menu-btn">Contact</a></li>
+      </ul>
+      <!-- <div class="profile-pic"> -->
+      <img src="userImages/<%= user.image %>" alt="<%= user.image %>" class="profile-pic" onclick="toggleMenu()" />
+      <!-- <img src="arpit.jpg" class="profile-pic" onclick="toggleMenu()"> -->
+      <!-- </div> -->
+
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="user-info">
+            <img src="userImages/<%= user.image %>" class="profile-pic" />
+            <h3>
+              <%= user.name %>
+            </h3>
+          </div>
+          <hr />
+          <a href="/edit?id=<%= user._id %>" class="sub-menu-link">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p>Edit Profile</p>
+            <!-- <span>></span> -->
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <p>
+              <%= user.email %>
+            </p>
+          </a>
+          <a href="#" class="sub-menu-link">
+            <i class="fas fa-mobile-alt"></i>
+            <p>
+              <%= user.mobile %>
+            </p>
+          </a>
+          <a href="/logout" class="sub-menu-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <p>Logout</p>
+            <!-- <span>></span> -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- home/hero section -->
+  <section class="home" id="home">
+    <!-- <input type="text"> -->
+    <div class="home-content">
+      <p class="home-title">
+        Welcome <span>
+          <%= user.name %>
+        </span> to the iitians project hub
+      </p>
+      <!-- <p class="home-title-des">You can hire developers for your Project and buy projects</p> -->
+
+      <input type="text" placeholder="Search..." class="search-box" />
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+  <section class="project-container" id="project">
+    <p class="title">Projects</p>
+
+
+
+
+
+
+
+    <div class="card-container">
+
+
+
+      <div class="card">
+        <div class="card-img">
+          <img src="/images/portfolio-product-student.jpg" alt="">
+        </div>
+        <div class="card-details">
+          <h3>Student Portfolio</h3>
+          <p>Tutorial By <a href="http://singharpit.000webhostapp.com" target="_blank">Arpit Singh</a></p>
+          <span>This project is for Students</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="/images/portfolio-product-professional.jpg" alt="">
+        </div>
+        <div class="card-details">
+          <h3>Professional Portfolio</h3>
+          <p>Tutorial By <a href="http://singharpit.000webhostapp.com" target="_blank">Arpit Singh</a></p>
+          <span>This project is for business man and Professional</span>
+        </div>
+      </div>
+
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+
+    </div>
+
+
+
+
+  </section>
+
+  <!-- footer section -->
+  <!-- <footer>
+            <span>Created By <a href="#">Niharika Mahajan</a> | <span class="far fa-copyright"></span> 2022 All rights
+                reserved.</span>
+        </footer> -->
+
+
+
+
+
+  <!-- js file link -->
+  <script src="/js/home.js"></script>
+
+</body>
+
+</html>
