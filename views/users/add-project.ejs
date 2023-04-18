@@ -1,8 +1,28 @@
-<title>iitians Project Hub</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iitians Project Hub</title>
+
+
+  <!-- external css -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/userOtherFiles.css" />
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+</head>
+<body>
+  <%- include('../layouts/userHeader.ejs'); %>
+
+
+
 <a href="/home">Home</a>
 
+
 <section class="add-project">
-  <h1 class="addProjectTitle">Create New Project</h1>
+  <h1 class="title">Create New Project</h1>
 
   <form action="" method="post" enctype="multipart/form-data" class="input-container">
     
@@ -23,13 +43,7 @@
       class="input-field"
     />
     <br /><br />
-    <input
-      type="text"
-      name="aboutProduct"
-      placeholder="10-15 words about project"
-      required
-      class="input-field"
-    />
+    <input type="text" name="aboutProduct" placeholder="10-15 words about project" required class="input-field" maxlength="47"/>
     <br /><br />
     <label>Project Image</label>
     <input type="file" name="image" required id="image-input" />
@@ -65,3 +79,14 @@
   <p class="regiter-success-msg"><%= message %>&#x2713;&#x2713;</p>
   <% } %>
 </section>
+
+  
+
+
+
+
+<%- include('../layouts/footer.ejs'); %>
+
+
+</body>
+</html>

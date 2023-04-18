@@ -1,29 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iitians Project Hub</title>
+
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    
 
 
-<section class="container">
+    
 
-    <h1>Admin Login</h1>
 
-    <%
 
-        if(typeof message !== 'undefined'){
 
-            %>
-            <h3><%= message %></h3>
-            <%
+    <section class="login-container">
+
+        <div class="sub-container">
+
+            <div class="left">
+                <img src="/images/home-bg.png" alt="">
+            </div>
+
+            <div class="right">
+
+                <h1>Admin Login</h1>
+
+                <%
             
-        }
-    %>
+                    if(typeof message !== 'undefined'){
+            
+                        %>
+                        <h3><%= message %></h3>
+                        <%
+                        
+                    }
+                %>
+            
+                <form action="" method="post">
+                    <input type="email" name="email" placeholder="Enter email" class="inp-field">
+                    <br>
+                    <br>
+                    <input type="password" name="password" placeholder="Enter Password" class="inp-field">
+                    <br><br>
+                    <input type="submit" value="Login" class="btn">
+                </form>
 
-    <form action="" method="post">
-        <input type="email" name="email" placeholder="Enter email">
-        <br>
-        <br>
-        <input type="password" name="password" placeholder="Enter Password">
-        <br><br>
-        <input type="submit" value="Login">
-    </form>
+                <br>
 
-        <a href="/admin/forget">forget password</a>
+                <a href="/admin/forget" >forget password?</a>
+                <a href="/login" class="verification-link">User Login</a>
+            </div>
+        </div>
 
-</section>
+    </section>
+
+
+</body>
+</html>

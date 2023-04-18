@@ -1,193 +1,313 @@
-<!-- <h3>Welcome, <%= user.name %></h3> -->
-
-<!-- <section class="profile-container">
-    <table> -->
-<!-- <tr>
-            <td> <img src="userImages/<%= user.image %>" alt="<%= user.image %>" width="70px" height="70px"> </td>
-        </tr> -->
-<!-- <tr>
-            <td>Email</td>
-            <td> <%= user.email %> </td>
-        </tr>
-        <tr>
-            <td>Mobile</td>
-            <td> <%= user.mobile %> </td>
-        </tr>
-    </table>
-</section> -->
-
-<!-- <a href="/edit?id=<%= user._id %>">Edit</a>
-<a href="/logout">logout</a> -->
-
-<!-- <% include('../layouts/header.ejs') %> -->
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iitians Project Hub</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iitians Project Hub</title>
+    <!-- external css file link -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/home.css" />
+    <!-- <script src="../../public/js/home.js"></script> -->
 
-  <!-- external css file link -->
-  <link rel="stylesheet" type="text/css" href="/stylesheets/home.css" />
-  <!-- <script src="../../public/js/home.js"></script> -->
+    <!-- other styling link -->
 
-  <!-- other styling link -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 
-  <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
-</head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
 
-<body>
-  <!-- Header Navbar -->
-  <nav class="navbar">
-    <div class="max-width">
-      <div class="menu-btn">
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="logo">
-        <a href="#">log<span>o</span></a>
-      </div>
-      <ul class="menu">
-        <li><a href="/home" class="menu-btn">Home</a></li>
-        <li><a href="/projects" class="menu-btn">Projects</a></li>
-        <li><a href="#" class="menu-btn">Services</a></li>
-        <li><a href="#" class="menu-btn">About</a></li>
-        <li><a href="/addProject" class="menu-btn">+New Project</a></li>
-        <li><a href="#" class="menu-btn">Contact</a></li>
-      </ul>
-      <!-- <div class="profile-pic"> -->
-      <img src="userImages/<%= user.image %>" alt="<%= user.image %>" class="profile-pic" onclick="toggleMenu()" />
-      <!-- <img src="arpit.jpg" class="profile-pic" onclick="toggleMenu()"> -->
-      <!-- </div> -->
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+  </head>
 
-      <div class="sub-menu-wrap" id="subMenu">
-        <div class="sub-menu">
-          <div class="user-info">
-            <img src="userImages/<%= user.image %>" class="profile-pic" />
-            <h3>
-              <%= user.name %>
-            </h3>
+  <body>
+    <!-- Header Navbar -->
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+          <a href="#">log<span>o</span></a>
+        </div>
+        <ul class="menu">
+          <li><a href="/home" class="menu-btn">Home</a></li>
+          <li><a href="/projects" class="menu-btn">Projects</a></li>
+          <li><a href="/addProject" class="menu-btn">New Project</a></li>
+          <li><a href="#" class="menu-btn">About</a></li>
+          <li><a href="/contactUs" class="menu-btn">Contact</a></li>
+        </ul>
+        <!-- <div class="profile-pic"> -->
+        <img
+          src="userImages/<%= user.image %>"
+          alt="<%= user.image %>"
+          class="profile-pic"
+          onclick="toggleMenu()"
+        />
+        <!-- <img src="arpit.jpg" class="profile-pic" onclick="toggleMenu()"> -->
+        <!-- </div> -->
+
+        <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu">
+            <div class="user-info">
+              <img src="userImages/<%= user.image %>" class="profile-pic" />
+              <h3><%= user.name %></h3>
+            </div>
+            <hr />
+            <a href="/edit?id=<%= user._id %>" class="sub-menu-link">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <p>Edit Profile</p>
+              <!-- <span>></span> -->
+            </a>
+            <a href="#" class="sub-menu-link">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <p><%= user.email %></p>
+            </a>
+            <a href="/userDashboard" class="sub-menu-link">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <!-- <p><%= user.email %></p> -->
+              <p>Dashboard</p>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <i class="fas fa-mobile-alt"></i>
+              <p><%= user.mobile %></p>
+            </a>
+            <a href="/logout" class="sub-menu-link">
+              <i class="fas fa-sign-out-alt"></i>
+              <p>Logout</p>
+              <!-- <span>></span> -->
+            </a>
           </div>
-          <hr />
-          <a href="/edit?id=<%= user._id %>" class="sub-menu-link">
-            <i class="fa fa-user" aria-hidden="true"></i>
-            <p>Edit Profile</p>
-            <!-- <span>></span> -->
-          </a>
-          <a href="#" class="sub-menu-link">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            <p>
-              <%= user.email %>
-            </p>
-          </a>
-          <a href="#" class="sub-menu-link">
-            <i class="fas fa-mobile-alt"></i>
-            <p>
-              <%= user.mobile %>
-            </p>
-          </a>
-          <a href="/logout" class="sub-menu-link">
-            <i class="fas fa-sign-out-alt"></i>
-            <p>Logout</p>
-            <!-- <span>></span> -->
-          </a>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- home/hero section -->
-  <section class="home" id="home">
-    <!-- <input type="text"> -->
-    <div class="home-content">
-      <p class="home-title">
-        Welcome <span>
+    <!-- home/hero section -->
+    <section class="home" id="home">
+      <!-- <input type="text"> -->
+      <div class="home-content">
+        <p class="home-title">
+          <!-- Welcome <span>
           <%= user.name %>
-        </span> to the iitians project hub
+        </span> to the iitians project hub -->
+          Free and Open-Source Projects Plateform for Students
+        </p>
+        <p class="home-title-des">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+          atque! Dolorum voluptatum magni reiciendis pariatur, deserunt deleniti
+          explicabo repudiandae blanditiis praesentium repellat adipisci.
+          Voluptate repellendus assumenda non aperiam amet quis, totam iure
+          itaque fugiat temporibus, tempora sunt, voluptatum ducimus illo!
+        </p>
+        <a href="/projects"><button class="btn">Explore</button></a>
+      </div>
+      <!-- image -->
+      <div class="home-image">
+        <img src="/images/home-bg.png" alt="home-image">
+      </div>
+    </section>
+
+    <section id="features">
+      <p class="title">Features</p>
+      <p class="title-des">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit
       </p>
-      <!-- <p class="home-title-des">You can hire developers for your Project and buy projects</p> -->
 
-      <input type="text" placeholder="Search..." class="search-box" />
-    </div>
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-  <section class="project-container" id="project">
-    <p class="title">Projects</p>
-
-
-
-
-
-
-
-    <div class="card-container">
-
-
-
-      <div class="card">
-        <div class="card-img">
-          <img src="/images/portfolio-product-student.jpg" alt="">
+      <div class="features-card-container">
+        <div class="features-card">
+          <div class="features-card-icon">
+            <i class="fa fa-upload" aria-hidden="true"></i>
+          </div>
+          <div class="features-card-details">
+            <h3>Upload Projects</h3>
+            <p>
+              Upload Your projects and get the rating as per your work if there
+              is any premium projects then you also can charge for that Lorem
+              ipsum dolor, sit amet consectetur adipisicing.
+            </p>
+          </div>
         </div>
-        <div class="card-details">
-          <h3>Student Portfolio</h3>
-          <p>Tutorial By <a href="http://singharpit.000webhostapp.com" target="_blank">Arpit Singh</a></p>
-          <span>This project is for Students</span>
+
+        <div class="features-card">
+          <div class="features-card-icon">
+            <i class="fa-solid fa-paintbrush"></i>
+          </div>
+          <div class="features-card-details">
+            <h3>High-quality Design</h3>
+            <p>
+              Upload Your projects and get the rating as per your work if there
+              is any premium projects then you also can charge for that Lorem
+              ipsum dolor, sit amet consectetur adipisicing.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-card">
+          <div class="features-card-icon">
+            <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+          </div>
+          <div class="features-card-details">
+            <h3>Fully Customizable</h3>
+            <p>
+              Upload Your projects and get the rating as per your work if there
+              is any premium projects then you also can charge for that Lorem
+              ipsum dolor, sit amet consectetur adipisicing.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-card">
+          <div class="features-card-icon">
+            <i class="fa-solid fa-square-pen"></i>
+          </div>
+          <div class="features-card-details">
+            <h3>Free and Open-Source</h3>
+            <p>
+              Upload Your projects and get the rating as per your work if there
+              is any premium projects then you also can charge for that Lorem
+              ipsum dolor, sit amet consectetur adipisicing.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-card">
+          <div class="features-card-icon">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="features-card-details">
+            <h3>Used Latest Technology</h3>
+            <p>
+              Upload Your projects and get the rating as per your work if there
+              is any premium projects then you also can charge for that Lorem
+              ipsum dolor, sit amet consectetur adipisicing.
+            </p>
+          </div>
+        </div>
+
+        <div class="features-card">
+          <div class="features-card-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="features-card-details">
+            <h3>Learning Platform</h3>
+            <p>
+              Upload Your projects and get the rating as per your work if there
+              is any premium projects then you also can charge for that Lorem
+              ipsum dolor, sit amet consectetur adipisicing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-help-sec" id="home-help-sec">
+      <p class="title">We are ready to help</p>
+      <p class="title-des">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit
+      </p>
+      <div class="home-help-img">
+        <img src="/images/help-sec-img.jpg" alt="" />
+      </div>
+    </section>
+
+    <section id="ribon">
+      <div class="ribon-container">
+        <p><i class="fa fa-tasks" aria-hidden="true"></i> Projects</p>
+        <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</p>
+        <p><i class="fa fa-briefcase" aria-hidden="true"></i> Freelancing</p>
+      </div>
+    </section>
+
+    <section class="home-imp-feature" id="home-imp-feature">
+      <div class="fir-sec-cont">
+        <div class="left">
+          <img src="/images/bug4.jpg" alt="" />
+        </div>
+        <div class="right">
+          <div class="right-sub-container">
+            <p class="sub-title">Bug free code</p>
+            <p class="right-sub-des">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              sunt culpa, iste illo cupiditate quod optio neque voluptatum totam,
+              soluta ab excepturi quos nam vitae!
+            </p>
+          </div>
+          <div class="right-sub-container">
+            <p class="sub-title">Premier support</p>
+            <p class="right-sub-des">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              sunt culpa, iste illo cupiditate quod optio neque voluptatum totam,
+              soluta ab excepturi quos nam vitae!
+            </p>
+          </div>
+          <div class="right-sub-container">
+            <p class="sub-title">Responsive design</p>
+            <p class="right-sub-des">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              sunt culpa, iste illo cupiditate quod optio neque voluptatum totam,
+              soluta ab excepturi quos nam vitae!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="home-footer">
+      <div class="footer-navigation-link">
+        <a href="/home" class="footer-nav-btn">Home</a>
+        <a href="/projects" class="footer-nav-btn">Projects</a>
+        <a href="/addProject" class="footer-nav-btn">New Project</a>
+        <a href="#" class="footer-nav-btn">About</a>
+        <a href="/contactUs" class="footer-nav-btn">Contact</a>
+      </div>
+      <hr />
+
+      <div class="footer-social-subscribe">
+        <div class="footer-left-icons">
+          <a href="https://www.instagram.com/arpit70singh/" target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/arpit-singh-2b7081202/"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a href="https://twitter.com/singharpit001" target="_blank"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+        </div>
+        <div class="footer-right-subscribe">
+          <form action="" method="post">
+            <input type="email" name="email" id="subscribe-email" placeholder="example@abc.domain" />
+            <input type="submit" value="Subscribe" id="subscribe-btn" />
+          </form>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-img">
-          <img src="/images/portfolio-product-professional.jpg" alt="">
-        </div>
-        <div class="card-details">
-          <h3>Professional Portfolio</h3>
-          <p>Tutorial By <a href="http://singharpit.000webhostapp.com" target="_blank">Arpit Singh</a></p>
-          <span>This project is for business man and Professional</span>
+      <hr />
+
+      <div class="footer-copyright">
+        <span
+          >Created By <a href="#">Arpit Singh</a> |
+          <span class="far fa-copyright"></span> 2023 All rights reserved.</span
+        >
+        <div class="footer-privacyFAQ-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Condition</a>
+          <a href="#">FAQ</a>
         </div>
       </div>
+    </footer>
 
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
-      <div class="card"></div>
+    <!-- <div class="title">hello</div> -->
 
-    </div>
-
-
-
-
-  </section>
-
-  <!-- footer section -->
-  <!-- <footer>
-            <span>Created By <a href="#">Niharika Mahajan</a> | <span class="far fa-copyright"></span> 2022 All rights
-                reserved.</span>
-        </footer> -->
-
-
-
-
-
-  <!-- js file link -->
-  <script src="/js/home.js"></script>
-
-</body>
-
+    <!-- js file link -->
+    <script src="/js/home.js"></script>
+  </body>
 </html>

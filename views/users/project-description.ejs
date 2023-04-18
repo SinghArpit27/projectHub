@@ -1,56 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iitians Project Hub</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/userOtherFiles.css" />
 
-      <!-- Dynamic Card -->
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+</head>
+<body>
+    <%- include('../layouts/userHeader.ejs'); %>
+    <!-- <header class="navbar-container">
+        <a href="#">iitians.project.hub</a>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/projects">Projects</a>
+        </nav>
+      </header> -->
 
-
-
-      <!-- <%
-          if(products.length > 0){
-              for(let i = 0; i <products.length; i++){
-                  %> -->
-
-      <!-- <div class="card">
-                    <div class="card-img">
-                      <img src="/projectUploads/<%= products[i].image %>" alt="<%= products[i].image %>">
-                    </div>
-                    <div class="card-details">
-                      <h3><%= products[i].productTitle %></h3>
-                      <p>Tutorial By <a href="#" target="_blank"><%= products[i].tutorialBy %></a></p>
-                      <span><%= products[i].aboutProduct %></span>
-                    </div>
-                  <%
-              }
-          }
-      </div> -->
-      <!-- else{
-        %>
-          <h3>Project Not Found</h3>
-        <%
-    }
-
-  %> -->
-
-
-
+    <h1 class="title">Project Description</h1>
+    <!-- <img src="/projectUploads/<%= prod.image %>" alt="<%= prod.image %>"> -->
+    <h3><%= prod.productTitle %></h3>
+    <h5>Created By <%= prod.tutorialBy%></h5>
+    <h5><%= prod.aboutProduct%></h5>
+    <textarea name="" id="" cols="30" rows="10"><%=prod.projectDescription%></textarea>
+    <a href="<%= prod.projectCode %>" target="_blank">Code</a>
+    <a href="/projectUploads/<%= prod.synopsis %>" target="_blank">Synopsis</a>
+    <a href="/projectUploads/<%= prod.report %>" target="_blank">Report</a>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+    <%- include('../layouts/footer.ejs'); %>
+</body>
+</html>

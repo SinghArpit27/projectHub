@@ -1,57 +1,51 @@
-<a href="/home">Home</a>
-<title>iitians Project Hub</title>
-
-<h1>Projects</h1>
-
-
-
-
-
-<table width="50%">
-    <thead>
-        <tr>
-            <th>Image</th>
-            <th>productTitle</th>
-            <th>tutorialBy</th>
-            <th>aboutProduct</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>img</td>
-            <td>proTitle</td>
-            <td>Arpit</td>
-            <td>demo project</td>
-        </tr>
-        <%if(productRecord.length > 0) {%>
-          
-          <% productRecord.forEach(function(element) {%>
-            <tr>
-              <td><%= element.image %></td>
-              <td><%= element.productTitle %></td>
-              <td><%= element.tutorialBy %></td>
-              <td><%= element.aboutProduct %></td>
-            </tr>
-          <% }) %>
-          <% } %>
-        
-      </tbody>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iitians Project Hub</title>
+  
+  <!-- external css -->
+  <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/home.css" /> -->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/userOtherFiles.css" />
 
 
-</table>
+      <!-- favicon -->
+      <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
+</head>
+<body>
+
+  <%- include('../layouts/userHeader.ejs'); %>
+
+    <section class="project-container" id="project">
+      <p class="title">Projects</p>
 
 
+      <div class="card-container">
+      <% if(productRecord.length) { %>
+        <% for(let product of productRecord) { %>
+          <div class="card">
+            <div class="card-img">
+              <img src="/projectUploads/<%= product.image %>" alt="<%= product.image %>">
+            </div>
+            <div class="card-details">
+              <h3><%= product.productTitle %></h3>
+              <p>Tutorial By <span href="#" target="_blank"><%= product.tutorialBy %></span></p>
+              <span><%= product.aboutProduct %></span>
+            </div>
+            <div class="card-details-btn-container">
+              <a href="/project-description/<%= product.id%>" class="card-btn">View Details</a>
+            </div>
+          </div>
+        <% } %>
+        <% } else { %>
+          <div>No Products Available</div>
+        <% } %>
+      </div>
 
 
-<!-- <table>
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>productTitle</th>
-        <th>creator</th>
-        <th>About</th>
-      </tr>
-    </thead>
-   
-  </table> -->
+    </section>
 
+
+    <%- include('../layouts/footer.ejs'); %>

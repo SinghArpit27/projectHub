@@ -265,7 +265,7 @@ const adminDashboard = async(req,res)=>{
         }
 
 
-        const limit = 2;
+        const limit = 4;
  
 
         const usersData = await User.find({

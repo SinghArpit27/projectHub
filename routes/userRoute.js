@@ -74,6 +74,8 @@ user_route.post('/login',userController.verifyLogin);
 
 user_route.get('/home',auth.isLogin,userController.loadHome);
 
+user_route.post('/home',userController.insertSubscriber);
+
 user_route.get('/logout',auth.isLogin,userController.userLogout);
 
 user_route.get('/forget',auth.isLogout,userController.forgetLoad);
@@ -96,8 +98,18 @@ user_route.post('/edit',upload.single('image'),userController.updateProfile);
 
 user_route.get('/addProject',auth.isLogin, userController.loadNewProject);
 
-user_route.post('/addProject',auth.isLogin,multipleUploads,userController.insertProductDetails);
+user_route.post('/addProject',multipleUploads,userController.insertProductDetails);
 
 user_route.get('/projects',auth.isLogin,userController.loadProjects);
+
+user_route.post('/projects',userController.insertSubscriber);
+
+user_route.get('/project-description/:productId',auth.isLogin,userController.loadProDescription);
+
+user_route.get('/contactUs',auth.isLogin,userController.loadContactUs);
+
+user_route.post('/contactUs',userController.insertMessage);
+
+user_route.get('/userDashboard',auth.isLogin, userController.loadUserDashboard);
 
 module.exports = user_route;

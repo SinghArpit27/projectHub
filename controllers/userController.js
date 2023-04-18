@@ -4,7 +4,10 @@ const nodemailer = require("nodemailer");
 const randomstring = require("randomstring");
 const config = require("../config/config");
 const Product = require("../models/productModel");
+const Message = require("../models/messageModel");
+const Subscribe = require("../models/subscribeModel");
 const { ObjectId } = require("mongodb");
+// const ejsLint = require('ejs-lint');
 // const { set } = require("../routes/userRoute");
 
 // pass converting into hashing like encrypting
@@ -178,9 +181,7 @@ const verifyLogin = async (req, res) => {
 const loadHome = async (req, res) => {
   try {
     const userData = await User.findById({ _id: req.session.user_id });
-    // const productData = await Product.findById({ _id: req.session.product_id });
-    // const productData = await Product.findById();
-    // const result = await Promise.all([userData, productData]);
+
     res.render("home", { user: userData });
   } catch (error) {
     console.log(error.message);
@@ -342,23 +343,23 @@ const updateProfile = async (req, res) => {
   }
 };
 
-const loadNewProject = async (req,res) =>{
+const loadNewProject = async (req, res) => {
 
   try {
-      res.render("add-project");
+    res.render("add-project");
   } catch (error) {
-      console.log(error.message);
+    console.log(error.message);
   }
 
 };
 
-// const productDetails = Product.find({});
 // insert product details
-const insertProductDetails = async(req, res) =>{
+const insertProductDetails = async (req, res) => {
 
   try {
-    
+
     const product = new Product({
+      id: Date.now(),
       productTitle: req.body.productTitle,
       tutorialBy: req.body.tutorialBy,
       aboutProduct: req.body.aboutProduct,
@@ -370,60 +371,112 @@ const insertProductDetails = async(req, res) =>{
     });
 
     const productData = await product.save();
-    // await product.save()
-
-
-      // // send data to a home page
-      // productDetails.exec(function(error, data){
-      //   if (error) {
-      //     console.log(error);
-      //   }
-
-      //   res.render('projects', {productRecord: data});
-
-      // });
-
-
-
-
 
     if (productData) {
-
       res.render("add-project", {
-        message: "Project Added successfully done",
-        productRecord: productData
+        message: "Project Added successfully done"
       });
     } else {
       res.render("add-project", { message: "Project Adding Failed..." });
     }
-
-
-
-
   } catch (error) {
     console.log(error.message);
   }
 
 };
 
-const productDetails = Product.find({});
-const loadProjects = async(req,res) =>{
+// const productDetails = Product.find({});
+const loadProjects = async (req, res) => {
 
   try {
 
 
-    // const productData = await Product.findById();
-
-      res.render("project-card",{productRecord: productDetails});
-      // console.log(productRecord);
-  } catch (error) {
-      console.log(error.message);
-  }
+    Product.find({}, function (err, data){
+      if(!err){
+        res.render("project-card", { productRecord:data });
+      }else{
+        throw err;
+      }
+    }).clone().catch(function(err){ console.log(err)})
   
-
+  } catch (error) {
+    console.log(error.message);
+  }
 
 };
 
+
+const loadProDescription = async (req,res) => {
+  
+
+  // const productId = req.params.productId;
+  Product.findById(req.params.productId)
+  .then(prod => {
+     res.render("project-description",{prod: prod});
+  })
+  .catch(err => console.log(err));
+
+}
+
+const loadContactUs = async(req,res) => {
+  try {
+    res.render("contact");
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+const insertMessage = async(req,res) => {
+  try {
+    const message = new Message({
+      name: req.body.name,
+      email: req.body.email,
+      subject:req.body.subject,
+      message:req.body.message
+    });
+    const messageData = await message.save();
+
+    if(messageData){
+      res.render("contact",{message: "Message Sent Successfully"});
+    }
+    else{
+      res.render("contact", {message: "message Sending failed"});
+    }
+
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+const insertSubscriber = async(req,res) => {
+  try {
+    const subscribe = new Subscribe({
+        email: req.body.email
+    });
+    const subscribeData = await subscribe.save();
+    if(subscribeData){
+      res.redirect("home");
+    }
+    else{
+      res.redirect("home");
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+const loadUserDashboard = async(req,res) => {
+
+  try {
+
+    const userData = await User.findById({ _id: req.session.user_id });
+    res.render("dashboard", { user: userData });
+
+  } catch (error) {
+    console.log(error.message);
+  }
+
+}
 
 module.exports = {
   loadRegister,
@@ -443,5 +496,10 @@ module.exports = {
   updateProfile,
   loadNewProject,
   insertProductDetails,
-  loadProjects
+  loadProjects,
+  loadProDescription,
+  loadContactUs,
+  insertMessage,
+  insertSubscriber,
+  loadUserDashboard
 };

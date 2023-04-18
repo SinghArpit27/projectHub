@@ -1,0 +1,308 @@
+
+      <!-- Dynamic Card -->
+
+
+
+      <!-- <%
+          if(products.length > 0){
+              for(let i = 0; i <products.length; i++){
+                  %> -->
+
+      <!-- <div class="card">
+                    <div class="card-img">
+                      <img src="/projectUploads/<%= products[i].image %>" alt="<%= products[i].image %>">
+                    </div>
+                    <div class="card-details">
+                      <h3><%= products[i].productTitle %></h3>
+                      <p>Tutorial By <a href="#" target="_blank"><%= products[i].tutorialBy %></a></p>
+                      <span><%= products[i].aboutProduct %></span>
+                    </div>
+                  <%
+              }
+          }
+      </div> -->
+      <!-- else{
+        %>
+          <h3>Project Not Found</h3>
+        <%
+    }
+
+  %> -->
+
+
+
+
+
+
+ <!-- <tbody>
+        <%if(productRecord.length > 0) {%>
+          
+          <% productRecord.forEach(function(element) {%>
+            <tr>
+              <td><%= element.image %></td>
+              <td><%= element.productTitle %></td>
+              <td><%= element.tutorialBy %></td>
+              <td><%= element.aboutProduct %></td>
+            </tr>
+          <% }) %>
+          <% } %>
+        
+      </tbody> -->
+
+
+
+
+
+
+
+            <!-- <% if(productRecord.length > 0){
+              for(let i = 0; i <productRecord.length; i++){
+                  %>
+
+      <div class="card">
+                    <div class="card-img">
+                      <img src="/projectUploads/<%= productRecord[i].image %>" alt="<%= productRecord[i].image %>">
+                    </div>
+                    <div class="card-details">
+                      <h3><%= productRecord[i].productTitle %></h3>
+                      <p>Tutorial By <a href="#" target="_blank"><%= productRecord[i].tutorialBy %></a></p>
+                      <span><%= productRecord[i].aboutProduct %></span>
+                    </div>
+                  <%
+              }
+          }
+      </div>
+      else{
+        %>
+          <h3>Project Not Found</h3>
+        <%
+    }
+
+  %>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<!-- <table width="50%">
+  <thead>
+      <tr>
+          <th>Image</th>
+          <th>productTitle</th>
+          <th>tutorialBy</th>
+          <th>aboutProduct</th>
+      </tr>
+  </thead>
+
+
+
+  <tbody>
+    <%
+  
+  if(productRecord.length > 0){
+      for(let i = 0; i <productRecord.length; i++){
+          %>
+              <tr>
+                  <td><img src="/projectUploads/<%= productRecord[i].image %>" alt="<%= productRecord[i].image %>" width="100px"></td>
+                  <td><%= productRecord[i].productTitle %></td>
+                  <td><%= productRecord[i].tutorialBy %></td>
+                  <td><%= productRecord[i].aboutProduct %></td>
+              </tr>
+          <%
+      }
+  }
+  else{
+      %>
+          <tr>
+              <td colspan="5">Users Not Found</td>
+          </tr>
+
+      <%
+  }
+  
+  %>
+  </tbody>
+
+</table> -->
+
+
+
+
+
+
+<!-- ejs language support -->
+
+ <!-- <% if(productRecord.length) { %>
+  <% for(let product of productRecord) { %>
+    <div class="card">
+      <div class="card-img">
+        <img src="/projectUploads/<%= product.image %>" alt="<%= product.image %>">
+      </div>
+      <div class="card-details">
+        <h3><%= product.productTitle %></h3>
+        <p>Tutorial By <a href="#" target="_blank"><%= product.tutorialBy %></a></p>
+        <span><%= product.aboutProduct %></span>
+      </div>
+    </div>
+  <% } %>
+  <% } else { %>
+    <div>No Products Available</div>
+  <% } %> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  <table width="50%">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>productTitle</th>
+            <th>tutorialBy</th>
+            <th>aboutProduct</th>
+        </tr>
+    </thead>
+
+
+
+    <tbody>
+      <%
+    
+    if(productRecord.length > 0){
+        for(let i = 0; i <productRecord.length; i++){
+            %>
+                <tr>
+                    <td><img src="/projectUploads/<%= productRecord[i].image %>" alt="<%= productRecord[i].image %>" width="100px"></td>
+                    <td><%= productRecord[i].productTitle %></td>
+                    <td><%= productRecord[i].tutorialBy %></td>
+                    <td><%= productRecord[i].aboutProduct %></td>
+                </tr>
+            <%
+        }
+    }
+    else{
+        %>
+            <tr>
+                <td colspan="5">Users Not Found</td>
+            </tr>
+
+        <%
+    }
+    
+    %>
+    </tbody>
+
+</table> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+  <section class="register">
+  <h1 class="regTitle">User Registration</h1>
+
+  <form action="" method="post" enctype="multipart/form-data" class="input-container"
+  >
+    <input type="text" name="name" placeholder="Enter name" required class="input-field"
+    />
+    <input type="email" name="email" placeholder="example@domain.com" required class="input-field"
+    />
+    <input type="text" name="mobile" placeholder="Mobile No." required class="input-field"
+    />
+    <input type="file" name="image" required id="image-input" />
+    <input type="password" name="password" placeholder="Enter Password" required class="input-field"
+    />
+    <input type="submit" value="Register" class="btn" />
+
+    <a href="/login" class="login-link">Already have an account?</a>
+  </form>
+
+  <% if(typeof message !== 'undefined'){ %>
+  <p class="regiter-success-msg"><%= message %>&#x2713;&#x2713;</p>
+  <% } %>
+</section>
+
+
+
+ -->
+ 

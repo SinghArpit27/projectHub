@@ -12,11 +12,6 @@ $(document).ready(function () {
         }
     });
 
-    // // slide up script
-    // $('.scroll-up-btn').click(function () {
-    //     $('html').animate({ scrollTop: 0 });
-    // });
-
 
 
     // toggle menu script
@@ -26,22 +21,11 @@ $(document).ready(function () {
     });
 
 
-
-    // // typing animation script
-
-    // var typed = new Typed(".typing-2", {
-    //     strings: ["Student", "Developer", "Designer", "Teacher"],
-    //     typeSpeed: 100,
-    //     backSpeed: 60,
-    //     loop: true
+    // // slide up script
+    // $('.scroll-up-btn').click(function () {
+    //     $('html').animate({ scrollTop: 0 });
     // });
 
-    // var typed = new Typed(".typing", {
-    //     strings: ["Student", "Developer", "Designer", "Teacher"],
-    //     typeSpeed: 100,
-    //     backSpeed: 60,
-    //     loop: true
-    // });
 
 
 

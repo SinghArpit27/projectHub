@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300&family=Nunito:wght@200;300;400;600;700&family=Poppins:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif; 
+}
+
+
+:root {
+    --blue: #475BE8;
+    --title: #11142d;
+    --grey: #f0f0f0;
+    --des: #808191;
+    --white: #fcfcfc;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  .inp-field {
+    width: 17rem;
+    padding:10px;
+    font-size:18px;
+    border-width:1px;
+    border-radius:5px;
+    border-style:ridge;
+    /* border-color:#7277db; */
+}
+.inp-field:focus { 
+    outline: none;
+    /* border-color: var(--title); */
+    box-shadow: 1px 1px 4px 0px rgba(42,42,42,.75);
+}
+.btn {
+    width: 7rem;
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 18px;
+    background: #3498db;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    margin-top: .5rem;
+}
+  
+.btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.login-container{
+    background-color: var(--grey);
+    height: 100vh;
+    padding-top: 4rem;
+}
+.sub-container{
+    width: 80%;
+    background-color: #fcfcfc;
+    border-radius: 20px;
+    display: flex;
+    /* gap: 1rem; */
+    margin: auto;
+}
+.sub-container .left{
+    width: 50%;
+    height: 31.5rem;
+    background-color: var(--blue);
+    border-radius: 20px 0 0 20px;
+}
+.sub-container .left img{
+    margin: 6.5rem 0 0 8rem;
+    width: 50%;
+}
+.sub-container .right{
+    width: 50%;
+    padding: 4.8rem 0 0 8rem;
+}
+.right h1{
+    font-weight: 700;
+    color: var(--title);
+    margin-bottom: 1.5rem;
+}
+
+.new-account-link{
+    /* margin-left: 3.8rem; */
+    margin-left: .8rem;
+}
+.lin-cont{
+    width: 65%;
+    margin-top: 2.5rem;
+}
+.verification-link{
+    margin-left: 2.3rem;
+}
+
+
+
+
+
+
+@media (max-width: 1360px){
+    .lin-cont{
+        display: flex;
+        flex-flow: column;
+    }
+    .verification-link{
+        margin-left: 0rem;
+    }
+}
+@media (max-width: 1250px){
+    .sub-container .left img{
+        margin: 7rem 0 0 7rem;
+        /* width: 50%; */
+    }
+    .sub-container .right{
+        width: 50%;
+        padding: 4.8rem 0 0 7rem;
+    }
+}
+@media (max-width: 1170px){
+    .sub-container .left img{
+        margin: 8rem 0 0 7rem;
+        /* width: 50%; */
+    }
+    .sub-container .right{
+        width: 50%;
+        padding: 4.8rem 0 0 6rem;
+    }
+}
+@media (max-width: 1100px){
+    .sub-container .left img{
+        margin: 7.1rem 0 0 5.1rem;
+        width: 60%;
+    }
+    .sub-container .right{
+        width: 50%;
+        padding: 4.8rem 0 0 5rem;
+    }
+}
+@media (max-width: 947px){
+    .sub-container .left{
+        display: none;
+    }
+    .sub-container{
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10rem;
+
+    }
+    .sub-container .right{
+        width: 60%;
+        padding: 2.5rem 0 2.5rem 1.9rem;
+    }
+}
+@media (max-width: 870px){
+    .sub-container{
+        width: 55%;
+    }
+    .sub-container .right{
+        width: 80%;
+        padding: 2.5rem 0 2.5rem 3rem;
+    }
+}
+@media (max-width: 770px){
+    .sub-container .right{
+        width: 80%;
+        padding: 2.5rem 0 2.5rem 2rem;
+    }
+}
+@media (max-width: 700px){
+    .sub-container{
+        width: 60%;
+    }
+    .sub-container .right{
+        width: 80%;
+        padding: 2.5rem 0 2.5rem 1.1rem;
+    }
+}
+@media (max-width: 620px){
+    .sub-container{
+        width: 65%;
+    }
+    .sub-container .right{
+        width: 80%;
+        padding: 2.5rem 0 2.5rem 1.3rem;
+    }
+}
+@media (max-width: 580px){
+    .sub-container{
+        width: 75%;
+    }
+    .sub-container .right{
+        width: 80%;
+        padding: 2.5rem 0 2.5rem 2.2rem;
+    }
+}
+@media (max-width: 530px){
+    .sub-container{
+        width: 80%;
+    }
+    .sub-container .right{
+        width: 90%;
+        padding-left: 3.4rem;
+    }
+}
+@media (max-width: 530px){
+    .sub-container .right{
+        padding-left: 2.6rem;
+    }
+}
+@media (max-width: 460px){
+    .sub-container{
+        width: 90%;
+    }
+    .sub-container .right{
+        width: 95%;
+        padding-left: 3.7rem;
+    }
+}
+@media (max-width: 460px){
+    .sub-container{
+        width: 90%;
+    }
+    .sub-container .right{
+        width: 100%;
+        padding-left: 3.7rem;
+    }
+}
+@media (max-width: 425px){
+
+    .sub-container .right{
+        padding-left: 3rem;
+    }
+}
+@media (max-width: 400px){
+    .sub-container{
+        width: 92%;
+        margin-top: 12rem;
+    }
+    .sub-container .right{
+        padding-left: 2.7rem;
+    }
+
+    .inp-field {
+        width: 15rem;
+        padding:10px;
+        font-size:16px;
+    }
+    .btn {
+        width: 5.8rem;
+        font-size: 15.5px;
+        padding: 10px 20px 10px 20px;
+        margin-top: .4rem;
+    }
+}
+@media (max-width: 360px){
+    .sub-container{
+        width: 94%;
+    }
+    .sub-container .right{
+        padding-left: 2rem;
+    }
+    .inp-field {
+        width: 14rem;
+        padding:10px;
+        font-size:16px;
+    }
+    .btn {
+        width: 5rem;
+        font-size: 15.5px;
+        padding: 10px 20px 10px 20px;
+        margin-top: .4rem;
+    }
+}
+
+@media (max-width: 300px){
+    .sub-container{
+        width: 96%;
+    }
+    .sub-container .right{
+        padding-left: 1rem;
+    }
+    .inp-field {
+        width: 13.5rem;
+        padding:10px;
+        font-size:14px;
+    }
+    .btn {
+        width: 5rem;
+        font-size: 13.5px;
+        padding: 9px 18px 9px 18px;
+        margin-top: .4rem;
+    }
+}

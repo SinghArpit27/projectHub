@@ -1,0 +1,18 @@
+
+<%- include('../layouts/userHeader.ejs'); %>
+
+<h1 style="margin-top: 6rem;">Contact Us</h1>
+<form method="post">
+    <input type="text" name="name" placeholder="Enter Name">
+    <br>
+    <input type="email" name="email" placeholder="Example@domain.abc">
+    <br>
+    <input type="text" name="subject" placeholder="Subject">
+    <br>
+    <textarea name="message" id="" cols="30" rows="10" placeholder="Message..."></textarea>
+    <br><input type="submit" value="Message Me">
+</form>
+
+<% if(typeof message !== 'undefined'){ %>
+    <p class="contactUs-Success-msg"><%= message %>&#x2713;&#x2713;</p>
+<% } %>

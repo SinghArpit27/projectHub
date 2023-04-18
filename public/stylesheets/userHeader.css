@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "ubuntu", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+:root {
+  /* --black: #2c2c54; */
+  --black: #111;
+  --orange: #ff9f1a;
+  --sky: #87bdd8;
+}
+
+
+
+
+/* header section nav bar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #475BE8;
+  /* background: #008184; */
+  padding: .8rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); */
+  /* box-shadow: 0 0.2rem .5rem rgb(134, 110, 110); */
+}
+
+header .logo {
+  font-size: 35px;
+  color: #fff;
+  text-decoration: none;
+}
+
+header .navbar a {
+  font-size: 18px;
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header .navbar a:hover {
+  color: crimson;
+}
+
+#menu-bar {
+  font-size: 2.5rem;
+  padding: 0.5rem .5rem;
+  color: var(--black);
+  cursor: pointer;
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media query */
+
+@media (max-width: 990px) {
+  header {
+    padding: .8rem 4rem;
+  }
+  #menu-bar {
+    display: block;
+  }
+
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: -120%;
+    width: 100%;
+    background: #eee;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  header .navbar.active {
+    left: 0;
+  }
+
+  header .navbar a {
+    color: #fff;
+    font-size: 2rem;
+    background: rgba(0, 0, 0, 0.8);
+    /* border: .1rem solid var(--black); */
+    /* border-radius: .5rem; */
+    padding: 1.5rem;
+    /* margin: 1.5rem; */
+    display: block;
+    text-align: center;
+  }
+
+  header .logo {
+    font-size: 3.5rem;
+    margin-top: -.6rem;
+  }
+}
+@media (max-width: 370px) {
+  header {
+    padding: .8rem 3rem;
+  }
+  header .logo {
+    font-size: 3.3rem;
+  }
+}
+@media (max-width: 300px) {
+  header {
+    padding: .8rem 2.5rem;
+  }
+  header .logo {
+    font-size: 3.2rem;
+  }
+}
+@media (max-width: 270px) {
+  header {
+    padding: .7rem 2rem;
+  }
+  header .logo {
+    font-size: 3rem;
+  }
+}

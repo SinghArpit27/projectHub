@@ -1,31 +1,54 @@
-<% include('../layouts/header.ejs') %>
-
-<section class="container">
-    <h1>User Login</h1>
-
-    <%
-        if(typeof message !== 'undefined'){
-            %>
-            <h4><%= message %></h4>
-            <%
-        }
-    %>
-
-    <form action="/login" method="post">
-        <input type="email" name="email" placeholder="Email or username" required>
-        <br><br>
-        <input type="password" name="password" placeholder="Password" required>
-        <br><br>
-        <input type="submit" value="Login">
-    </form>
-
-    <a href="/forget">Forget Password</a>
-    <br>
-    <a href="/verification">Verification</a>
-    <br>
-    <a href="/register">Create One</a>
-    <br>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iitians Project Hub</title>
 
 
-<% include('../layouts/footer.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+
+
+
+</head>
+<body>
+    
+
+    <section class="login-container">
+
+        <div class="sub-container">
+
+            <div class="left">
+                <img src="/images/home-bg.png" alt="">
+            </div>
+
+            <div class="right">
+
+                <h1>User Login</h1>
+                <% if(typeof message !== 'undefined'){ %>
+                <h4><%= message %></h4>
+                <% } %>
+                
+                <form action="/login" method="post">
+                    <input type="email" name="email" placeholder="Email or username" required class="inp-field" />
+                    <br /><br />
+                    <input type="password" name="password" placeholder="Password" required class="inp-field" />
+                    <br /><br />
+                    <input type="submit" value="Login" class="btn"/>
+                    <a href="/register" class="new-account-link btn">Create One</a>
+                </form>
+                <div class="lin-cont">
+                    <a href="/forget" class="forget-link">Forget Password?</a>
+                    <a href="/verification" class="verification-link">Verification</a>
+                    <a href="/admin" class="admin-login">Admin Login</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+</body>
+</html>
