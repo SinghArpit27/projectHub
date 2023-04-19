@@ -1,18 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-<%- include('../layouts/userHeader.ejs'); %>
+      <!-- external css -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/userOtherFiles.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/userHeader.css" />
+</head>
+<body>
 
-<h1 style="margin-top: 6rem;">Contact Us</h1>
-<form method="post">
-    <input type="text" name="name" placeholder="Enter Name">
-    <br>
-    <input type="email" name="email" placeholder="Example@domain.abc">
-    <br>
-    <input type="text" name="subject" placeholder="Subject">
-    <br>
-    <textarea name="message" id="" cols="30" rows="10" placeholder="Message..."></textarea>
-    <br><input type="submit" value="Message Me">
-</form>
+    <!-- Header Navbar -->
+    <nav class="navbar">
+      <div class="max-width">
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+          <a href="#">log<span>o</span></a>
+        </div>
+        <ul class="menu">
+          <li><a href="/home" class="menu-btn">Home</a></li>
+          <li><a href="/projects" class="menu-btn">Projects</a></li>
+          <li><a href="/addProject?id=<%= user._id %>" class="menu-btn">New Project</a></li>
+          <li><a href="#" class="menu-btn">About</a></li>
+          <li><a href="/userDashboard?id=<%= user._id %>" class="menu-btn" >Dashboard</a></li>
+          <li><a href="/contactUs" class="menu-btn" aria-current="page" >Contact</a></li>
+        </ul>
+        <!-- <div class="profile-pic"> -->
+        <img
+          src="userImages/<%= user.image %>"
+          alt="<%= user.image %>"
+          class="profile-pic"
+          onclick="toggleMenu()"
+        />
+        <!-- <img src="arpit.jpg" class="profile-pic" onclick="toggleMenu()"> -->
+        <!-- </div> -->
 
-<% if(typeof message !== 'undefined'){ %>
-    <p class="contactUs-Success-msg"><%= message %>&#x2713;&#x2713;</p>
-<% } %>
+        <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu">
+            <div class="user-info">
+              <img src="userImages/<%= user.image %>" class="profile-pic" />
+              <h3><%= user.name %></h3>
+            </div>
+            <hr />
+            <a href="/edit?id=<%= user._id %>" class="sub-menu-link">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <p>Edit Profile</p>
+              <!-- <span>></span> -->
+            </a>
+            <a href="#" class="sub-menu-link">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <p><%= user.email %></p>
+            </a>
+            <a href="#" class="sub-menu-link">
+              <i class="fas fa-mobile-alt"></i>
+              <p><%= user.mobile %></p>
+            </a>
+            <a href="/logout" class="sub-menu-link">
+              <i class="fas fa-sign-out-alt"></i>
+              <p>Logout</p>
+              <!-- <span>></span> -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+
+
+    <h1 style="padding-top: 6rem;">Contact Us</h1>
+    <form method="post">
+        <input type="text" name="name" placeholder="Enter Name">
+        <br>
+        <input type="email" name="email" placeholder="Example@domain.abc">
+        <br>
+        <input type="text" name="subject" placeholder="Subject">
+        <br>
+        <textarea name="message" id="" cols="30" rows="10" placeholder="Message..."></textarea>
+        <br><input type="submit" value="Message Me">
+    </form>
+
+    <% if(typeof message !== 'undefined'){ %>
+        <p class="contactUs-Success-msg"><%= message %>&#x2713;&#x2713;</p>
+    <% } %>
+
+
+    <%- include('../layouts/footer.ejs'); %>
+    <script src="/js/home.js"></script>
+</body>
+</html>
+
+

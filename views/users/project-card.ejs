@@ -10,13 +10,70 @@
   <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/home.css" /> -->
   <link rel="stylesheet" type="text/css" href="/stylesheets/userOtherFiles.css" />
 
+  <link rel="stylesheet" type="text/css" href="/stylesheets/userHeader.css" />
+
 
       <!-- favicon -->
       <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
 </head>
 <body>
 
-  <%- include('../layouts/userHeader.ejs'); %>
+      <!-- Header Navbar -->
+      <nav class="navbar">
+        <div class="max-width">
+          <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+          <div class="logo">
+            <a href="#">log<span>o</span></a>
+          </div>
+          <ul class="menu">
+            <li><a href="/home" class="menu-btn">Home</a></li>
+            <li><a href="/projects" class="menu-btn" aria-current="page" >Projects</a></li>
+            <li><a href="/addProject?id=<%= user._id %>" class="menu-btn">New Project</a></li>
+            <li><a href="#" class="menu-btn">About</a></li>
+            <li><a href="/userDashboard?id=<%= user._id %>" class="menu-btn">Dashboard</a></li>
+            <li><a href="/contactUs" class="menu-btn">Contact</a></li>
+          </ul>
+          <!-- <div class="profile-pic"> -->
+          <img
+            src="userImages/<%= user.image %>"
+            alt="<%= user.image %>"
+            class="profile-pic"
+            onclick="toggleMenu()"
+          />
+          <!-- <img src="arpit.jpg" class="profile-pic" onclick="toggleMenu()"> -->
+          <!-- </div> -->
+  
+          <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+              <div class="user-info">
+                <img src="userImages/<%= user.image %>" class="profile-pic" />
+                <h3><%= user.name %></h3>
+              </div>
+              <hr />
+              <a href="/edit?id=<%= user._id %>" class="sub-menu-link">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <p>Edit Profile</p>
+                <!-- <span>></span> -->
+              </a>
+              <a href="#" class="sub-menu-link">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <p><%= user.email %></p>
+              </a>
+              <a href="#" class="sub-menu-link">
+                <i class="fas fa-mobile-alt"></i>
+                <p><%= user.mobile %></p>
+              </a>
+              <a href="/logout" class="sub-menu-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <p>Logout</p>
+                <!-- <span>></span> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
 
     <section class="project-container" id="project">
       <p class="title">Projects</p>
@@ -49,3 +106,4 @@
 
 
     <%- include('../layouts/footer.ejs'); %>
+    <script src="/js/home.js"></script>

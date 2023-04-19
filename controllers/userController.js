@@ -188,6 +188,7 @@ const loadHome = async (req, res) => {
   }
 };
 
+
 // logout
 const userLogout = async (req, res) => {
   try {
@@ -345,21 +346,27 @@ const updateProfile = async (req, res) => {
 
 const loadNewProject = async (req, res) => {
 
-  try {
-    res.render("add-project");
-  } catch (error) {
-    console.log(error.message);
-  }
+    try {
+      
+      const id = req.query.id;
+      const userData = await User.findById({ _id: id });
 
+      if (userData) {
+        res.render("add-project", { user: userData });
+      } else {
+        res.redirect("/home");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
 };
 
 // insert product details
 const insertProductDetails = async (req, res) => {
-
   try {
-
     const product = new Product({
       id: Date.now(),
+      userId: req.query.id,
       productTitle: req.body.productTitle,
       tutorialBy: req.body.tutorialBy,
       aboutProduct: req.body.aboutProduct,
@@ -367,14 +374,14 @@ const insertProductDetails = async (req, res) => {
       projectCode: req.body.projectCode,
       synopsis: req.files.synopsis[0].filename,
       report: req.files.report[0].filename,
-      projectDescription: req.body.projectDescription
+      projectDescription: req.body.projectDescription,
     });
 
     const productData = await product.save();
 
     if (productData) {
       res.render("add-project", {
-        message: "Project Added successfully done"
+        message: "Project Added successfully done",
       });
     } else {
       res.render("add-project", { message: "Project Adding Failed..." });
@@ -382,101 +389,101 @@ const insertProductDetails = async (req, res) => {
   } catch (error) {
     console.log(error.message);
   }
-
 };
 
 // const productDetails = Product.find({});
 const loadProjects = async (req, res) => {
 
   try {
-
-
-    Product.find({}, function (err, data){
-      if(!err){
-        res.render("project-card", { productRecord:data });
-      }else{
+    const userData = await User.findById({ _id: req.session.user_id });
+    Product.find({}, function (err, data) {
+      if (!err) {
+        res.render("project-card", { productRecord: data, user: userData });
+      } else {
         throw err;
       }
-    }).clone().catch(function(err){ console.log(err)})
-  
+    })
+      .clone()
+      .catch(function (err) {
+        console.log(err);
+      });
   } catch (error) {
     console.log(error.message);
   }
-
 };
 
+const loadProDescription = async (req, res) => {
 
-const loadProDescription = async (req,res) => {
-  
+  const userData = await User.findById({ _id: req.session.user_id });
 
-  // const productId = req.params.productId;
   Product.findById(req.params.productId)
-  .then(prod => {
-     res.render("project-description",{prod: prod});
-  })
-  .catch(err => console.log(err));
+    .then((prod) => {
+      res.render("project-description", { prod: prod, user: userData });
+    })
+    .catch((err) => console.log(err));
+};
 
-}
-
-const loadContactUs = async(req,res) => {
+const loadContactUs = async (req, res) => {
   try {
-    res.render("contact");
+
+    const userData = await User.findById({ _id: req.session.user_id });
+
+    res.render("contact", { user: userData });
+
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
-const insertMessage = async(req,res) => {
+const insertMessage = async (req, res) => {
   try {
     const message = new Message({
       name: req.body.name,
       email: req.body.email,
-      subject:req.body.subject,
-      message:req.body.message
+      subject: req.body.subject,
+      message: req.body.message,
     });
     const messageData = await message.save();
 
-    if(messageData){
-      res.render("contact",{message: "Message Sent Successfully"});
+    if (messageData) {
+      res.render("contact", { message: "Message Sent Successfully" });
+    } else {
+      res.render("contact", { message: "message Sending failed" });
     }
-    else{
-      res.render("contact", {message: "message Sending failed"});
-    }
-
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
-const insertSubscriber = async(req,res) => {
+const insertSubscriber = async (req, res) => {
   try {
     const subscribe = new Subscribe({
-        email: req.body.email
+      email: req.body.email,
     });
     const subscribeData = await subscribe.save();
-    if(subscribeData){
+    if (subscribeData) {
       res.redirect("home");
-    }
-    else{
+    } else {
       res.redirect("home");
     }
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 
-const loadUserDashboard = async(req,res) => {
-
+const loadUserDashboard = async (req, res) => {
   try {
-
     const userData = await User.findById({ _id: req.session.user_id });
-    res.render("dashboard", { user: userData });
+    
+    // const id = req.query.id;
+    const projectData = await Product.find({ userId: req.query.id });
 
+    res.render("dashboard", { user: userData, productRecord: projectData });
   } catch (error) {
     console.log(error.message);
   }
-
-}
+  
+};
 
 module.exports = {
   loadRegister,
@@ -501,5 +508,5 @@ module.exports = {
   loadContactUs,
   insertMessage,
   insertSubscriber,
-  loadUserDashboard
+  loadUserDashboard,
 };

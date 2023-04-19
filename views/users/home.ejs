@@ -36,10 +36,11 @@
           <a href="#">log<span>o</span></a>
         </div>
         <ul class="menu">
-          <li><a href="/home" class="menu-btn">Home</a></li>
+          <li><a href="/home" class="menu-btn" aria-current="page" >Home</a></li>
           <li><a href="/projects" class="menu-btn">Projects</a></li>
-          <li><a href="/addProject" class="menu-btn">New Project</a></li>
+          <li><a href="/addProject?id=<%= user._id %>" class="menu-btn">New Project</a></li>
           <li><a href="#" class="menu-btn">About</a></li>
+          <li><a href="/userDashboard?id=<%= user._id %>" class="menu-btn">Dashboard</a></li>
           <li><a href="/contactUs" class="menu-btn">Contact</a></li>
         </ul>
         <!-- <div class="profile-pic"> -->
@@ -67,11 +68,6 @@
             <a href="#" class="sub-menu-link">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <p><%= user.email %></p>
-            </a>
-            <a href="/userDashboard" class="sub-menu-link">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <!-- <p><%= user.email %></p> -->
-              <p>Dashboard</p>
             </a>
             <a href="#" class="sub-menu-link">
               <i class="fas fa-mobile-alt"></i>

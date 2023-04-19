@@ -29,6 +29,24 @@
   box-sizing: border-box;
 }
 
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  color: #11142d;
+}
+
+
+
+
+
+
+
+
+
+
 ul {
   list-style: none;
 }
@@ -72,7 +90,6 @@ svg {
 body {
   font: 16px/1.5 "Lato", sans-serif;
 }
-
 
 /* HEADER STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -121,15 +138,14 @@ body {
   display: block;
   margin: 0 auto;
 }
-.page-header .profile-pic img{
+.page-header .profile-pic img {
   width: 60px;
   border-radius: 50%;
 }
-.page-header .profile-pic .greeting{
+.page-header .profile-pic .greeting {
   display: block;
   margin: 10px 0 3rem 3px;
 }
-
 
 .page-header .toggle-mob-menu {
   display: none;
@@ -207,7 +223,6 @@ body {
 .page-header .admin-menu button:focus svg {
   fill: var(--blue);
 }
-
 
 /* PAGE CONTENT STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -299,20 +314,130 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
+  
 }
 
 .page-content .grid > article {
   display: flex;
-  height: 300px;
+  height: auto;
   background: var(--page-content-blockColor);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
+  padding: 0 5rem 2rem 5rem;
+  background-color: #fcfcfc;
 }
 
 .page-content .grid > article:first-child,
 .page-content .grid > article:last-child {
   grid-column: 1 / -1;
+
 }
+
+
+
+
+/* Product card styling */
+.project-container {
+  padding: 0 6rem 2rem 6rem;
+  background-color: #fcfcfc;
+  /* border: 1px solid red;
+   */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 20rem;
+  width: 20rem;
+  border: 1px solid black;
+  margin: 1rem 2rem 1rem auto;
+  /* margin: auto; */
+  padding: 0.5rem;
+  border: 0.1rem solid grey;
+  border-radius: 0.5rem;
+}
+
+.card:hover {
+  background: lavender;
+  border: 0.1rem solid rgb(29, 170, 212);
+}
+
+.card-img {
+  width: 100%;
+  height: 65%;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-details{
+  padding-left: .2rem;
+}
+
+.card-details h3 {
+  margin: 1rem 0px 0px 0rem;
+  font-weight: 700;
+}
+
+.card-details p {
+  margin: .3rem 0px 0px 0rem;
+  font-size: 0.9rem;
+}
+
+.card-details p span{
+  font-size: 1rem;
+  margin-left: 0.2rem;
+  color: rgb(29, 170, 212);
+}
+
+.card-details p span:hover {
+  text-decoration: underline;
+}
+
+.card-details span {
+  margin: 0.3rem 0px 0px 0rem;
+  font-size: 0.8rem;
+}
+.card-details-btn-container a{
+  margin: 0.3rem 0px 0px .2rem;
+  font-size: 0.8rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* MQ RULES
@@ -409,7 +534,6 @@ body {
   }
 }
 
-
 /* BODY CLASSES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .mob-menu-opened .toggle-mob-menu svg {
@@ -421,6 +545,7 @@ body {
   visibility: visible;
   opacity: 1;
 }
+
 
 @media screen and (min-width: 768px) {
   .collapsed .page-header {
@@ -450,7 +575,6 @@ body {
     width: calc(100% - 40px);
   }
 }
-
 
 /* SWITCH STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -520,7 +644,6 @@ body {
   transform: translateY(-50%) rotate(-72deg);
 }
 
-
 /* LIGHT MODE STYLES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .light-mode {
@@ -556,6 +679,205 @@ body {
     fill: var(--black);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries */
+
+@media (max-width: 1100px){
+  .card-img {
+    width: 100%;
+    height: 60%;
+  }
+}
+@media (max-width: 947px){
+  .card-details{
+    padding-left: .2rem;
+  }
+  .card-details h3 {
+    margin: .9rem 0px 0px 0rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  
+  .card-details p {
+    margin: .2rem 0px 0px 0rem;
+    font-size: 0.9rem;
+  }
+  
+  .card-details p span{
+    font-size: .9rem;
+    margin-left: 0.2rem;
+    color: rgb(29, 170, 212);
+  }
+  
+  .card-details p span:hover {
+    text-decoration: underline;
+  }
+  
+  .card-details span {
+    margin: 0.4rem 0px 0px 0rem;
+    font-size: 0.8rem;
+  }
+  .card-details-btn-container a{
+    margin: 0.4rem 0px 0px 0.2rem;
+    font-size: 0.8rem;
+  }
+
+}
+
+@media (max-width: 470px){
+
+  .project-container {
+    padding: 0 4.5rem 0 4.5rem;
+  }
+  .card {
+    height: 19rem;
+    width: 20rem;
+  }
+  .card-img {
+    width: 100%;
+    height: 57%;
+  }
+  .card-details{
+    padding-left: .1rem;
+  }
+  .card-details h3 {
+    margin: .9rem 0px 0px 0rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  
+  .card-details p {
+    margin: .2rem 0px 0px 0rem;
+    font-size: 0.8rem;
+  }
+  
+  .card-details p span{
+    font-size: .8rem;
+    margin-left: 0.2rem;
+    color: rgb(29, 170, 212);
+  }
+  
+  .card-details p span:hover {
+    text-decoration: underline;
+  }
+  
+  .card-details span {
+    margin: 0.4rem 0px 0px 0rem;
+    font-size: 0.8rem;
+  }
+  .card-details-btn-container a{
+    margin: 0.4rem 0px 0px 0.1rem;
+    font-size: 0.8rem;
+  }
+
+
+
+}
+@media (max-width: 400px){
+  .project-container {
+    padding: 0 4rem 0 4rem;
+  }
+  .card {
+    height: 19rem;
+    width: 20rem;
+  }
+  .card-details{
+    padding-left: .1rem;
+  }
+  .card-details span {
+    margin: 0.3rem 0px 0px 0rem;
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 385px){
+  .project-container {
+    padding: 0 3.5rem 0 3.5rem;
+  }
+  .card {
+    height: 17rem;
+    width: 20rem;
+  }
+  .card-img {
+    width: 100%;
+    height: 54%;
+  }
+}
+@media (max-width: 360px){
+  .project-container {
+    padding: 0 3.2rem 0 3.2rem;
+  }
+  .card {
+    height: 16.9rem;
+    width: 20rem;
+  }
+  .card-img {
+    width: 100%;
+    height: 51%;
+  }
+}
+@media (max-width: 340px){
+  .project-container {
+    padding: 0 2.8rem 0 2.8rem;
+  }
+  .card {
+    height: 15rem;
+    width: 19rem;
+  }
+  .card-img {
+    width: 100%;
+    height: 51%;
+  }
+}
+@media (max-width: 300px){
+  .card {
+    height: 14rem;
+    width: 19rem;
+  }
+  .card-img {
+    width: 100%;
+    height: 50.5%;
+  }
+}
+@media (max-width: 280px){
+  .project-container {
+    padding: 0 2.3rem 0 2.3rem;
+  }
+  .card {
+    height: 12.5rem;
+    width: 17rem;
+  }
+  .card-img {
+    width: 100%;
+    height: 45%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* FOOTER
